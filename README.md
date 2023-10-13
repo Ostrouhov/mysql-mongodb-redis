@@ -20,4 +20,36 @@
 ## Задание 8
 >*select date(send_time) message_date from user_private_message group by message_date having count(user_from_id) = 1*
 ## Задание 9
+>**show dbs** - просмотр какие есть базы данных
 >
+>**use my_db** - переключиться на использование какой-то базы данных
+>
+>**show collections** - просмотр коллекций
+## Задание 10
+>**db.posts.find({"topics": /.*as.*/, "author": /.*example.ru.*/, "score": {$gt: 100}})** - из коллекции постов выбрать документы, в которых среди топиков встречается 'as', идентификатор автора содержит example.ru, а score больше 100
+## Задание 11
+>*db.posts.insertMany([{"creation_date": new Date(), "author": "skbx@example.com", "topics": ["mongodb"]}, {"creation_date": new Date("2021-12-31"), "author": "skbx@example.ru"}]);*
+## Задание 12
+>*db.users.aggregate([{$match: {count_visits: {$gt: 300}}}, {$project: {_id: 0, name: 1, karma: 1}}, {$group: { _id: {$substr: ["$name", 0, 1]}, sum_karma: {$sum: "$karma"}}}]);*
+## Задание 13
+>**set index "index precalculated content"** - Создание ключа со значением
+>
+>**exists index** - проверка, есть ли ключ index в БД
+>
+>**ttl index** - узнать, сколько еще времени будет существовать ключ index
+>
+>**expire index 120** - установка ключу время жизни 2 минуты
+>
+>**persist index** - отмена запланированного удаления ключа index
+## Задание 14
+>*zadd ratings 10 mysql 20 postgresql 30 mongodb 40 redis*
+>
+>*zincrby ratings 15 mysql*
+>
+>*zpopmax ratings 1*
+>
+>*zrevrank ratings mysql*
+## Задание 15
+>*subscribe events**
+>
+>*publish events42 "Hello there"*
