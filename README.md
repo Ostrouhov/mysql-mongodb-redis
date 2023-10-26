@@ -18,7 +18,7 @@
 ## Задание 7
 >**select user_from_id from user_private_message union select admin_user_id from discussion_group;** - SQL-запрос, который выбирает уникальные идентификаторы пользователей среди администраторов групп и отправителей приватных сообщений
 ## Задание 8
->*select date(send_time) message_date from user_private_message group by message_date having count(user_from_id) = 1*
+>**select date(send_time) DATE, count(message_id) ALL_MESSAGES, count(distinct user_from_id) as UNIQUE_USERS from user_private_message group by DATE having ALL_MESSAGES=UNIQUE_USERS;**
 ## Задание 9
 >**show dbs** - просмотр какие есть базы данных
 >
